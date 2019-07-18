@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,7 +22,7 @@ public class ParkingLotRepositoryTest {
     private ParkingLot parkingLot;
     @Before
     public void setUp(){
-        parkingLot = new ParkingLot("jerryLi",10,"CSUST");
+        parkingLot = new ParkingLot("jerryLi",10,"CSUST",new ArrayList<>());
     }
 
     @Test
@@ -42,7 +43,7 @@ public class ParkingLotRepositoryTest {
         int page = 1;
         int pageSize = 15;
         for (int i = 0; i < 30; i++) {
-            ParkingLot p = new ParkingLot("test"+i,10,"OOCL"+i);
+            ParkingLot p = new ParkingLot("test"+i,10,"OOCL"+i,new ArrayList<>());
             parkingLotRepository.save(p);
         }
         List<ParkingLot> parkingLots = parkingLotRepository.findAll();

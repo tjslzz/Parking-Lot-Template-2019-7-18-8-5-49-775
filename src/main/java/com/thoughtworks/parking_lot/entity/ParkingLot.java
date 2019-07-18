@@ -1,25 +1,32 @@
 package com.thoughtworks.parking_lot.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 public class ParkingLot {
     @Id
     @Column(unique = true)
     private String name;
-
+    @NotNull
     private int capacity;
+    @NotNull
     private String position;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "name")
+    private List<ParkingOrder> parkingOrders;
 
     public ParkingLot() {
     }
 
-    public ParkingLot(String name, int capacity, String position) {
+
+    public ParkingLot(String name, @NotNull int capacity, @NotNull String position, @NotNull List<ParkingOrder> parkingOrders) {
         this.name = name;
         this.capacity = capacity;
         this.position = position;
+        this.parkingOrders = parkingOrders;
     }
 
     public String getName() {
@@ -44,5 +51,13 @@ public class ParkingLot {
 
     public void setPosition(String position) {
         this.position = position;
+    }
+
+    public List<ParkingOrder> getParkingOrders() {
+        return parkingOrders;
+    }
+
+    public void setParkingOrders(List<ParkingOrder> parkingOrders) {
+        this.parkingOrders = parkingOrders;
     }
 }
