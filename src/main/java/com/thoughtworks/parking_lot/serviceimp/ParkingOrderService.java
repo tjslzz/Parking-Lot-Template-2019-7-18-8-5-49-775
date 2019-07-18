@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class ParkingOrderService implements ParkingOrderServiceImp {
@@ -29,6 +30,21 @@ public class ParkingOrderService implements ParkingOrderServiceImp {
                 parkingOrderRepository.save(parkingOrder);
                 return parkingOrder;
             }
+        }
+        catch (Exception e){}
+        return null;
+    }
+
+    @Override
+    public String delParkingOrder(String name, String car) {
+        try{
+            ParkingLot parkingLot = parkingLotRepository.findById(name).orElse(null);
+            List<ParkingOrder> parkingOrders = parkingLot.getParkingOrders();
+            ParkingOrder parkingOrder = parkingOrders.stream().filter(p -> p.getNumber().equalsIgnoreCase(car)).findFirst().orElse(null);
+            parkingOrder.setState(0);
+            parkingOrder.setEndTime(String.valueOf(new Date().getTime()));
+            parkingOrders.stream().map(p -> p.getNumber().equalsIgnoreCase(car)?parkingOrder:p);
+            return "car";
         }
         catch (Exception e){}
         return null;

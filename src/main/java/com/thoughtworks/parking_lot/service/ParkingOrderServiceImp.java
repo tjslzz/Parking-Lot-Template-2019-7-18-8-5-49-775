@@ -6,4 +6,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface ParkingOrderServiceImp {
     ParkingOrder addParkingOrder(String name,String car);
+    String delParkingOrder(String name,String car);
 }
