@@ -1,8 +1,8 @@
-package com.thoughtworks.parking_lot.service;
+package com.thoughtworks.parking_lot.serviceimp;
 
 import com.thoughtworks.parking_lot.entity.ParkingLot;
 import com.thoughtworks.parking_lot.repository.ParkingLotRepository;
-import com.thoughtworks.parking_lot.service.serviceImp.ParkingServiceImp;
+import com.thoughtworks.parking_lot.service.ParkingLotServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ParkingLotService implements ParkingServiceImp {
+public class ParkingLotService implements ParkingLotServiceImp {
+
+    private static final int PAGE_SIZE = 15;
+
 
     @Autowired
     private ParkingLotRepository parkingLotRepository;
@@ -37,11 +40,11 @@ public class ParkingLotService implements ParkingServiceImp {
     }
 
     @Override
-    public List<ParkingLot> findAllByPage(Integer page, Integer size) {
+    public List<ParkingLot> findAllByPage(Integer page) {
         List<ParkingLot> parkingLots = new ArrayList<>();
         try{
             parkingLots = parkingLotRepository.findAll();
-            return parkingLots.stream().skip((page-1)*size).limit(size).collect(Collectors.toList());
+            return parkingLots.stream().skip((page-1)*PAGE_SIZE).limit(PAGE_SIZE).collect(Collectors.toList());
         }
         catch (Exception e){}
         return parkingLots;

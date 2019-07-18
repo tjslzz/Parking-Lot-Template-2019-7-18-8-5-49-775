@@ -1,14 +1,14 @@
 package com.thoughtworks.parking_lot.controller;
 
 import com.thoughtworks.parking_lot.entity.ParkingLot;
-import com.thoughtworks.parking_lot.service.ParkingLotService;
+import com.thoughtworks.parking_lot.serviceimp.ParkingLotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/parking")
+@RequestMapping("/parking-lots")
 public class ParkingLotController {
 
     @Autowired
@@ -25,8 +25,8 @@ public class ParkingLotController {
     }
 
     @GetMapping()
-    public List<ParkingLot> findParkingLot(@RequestParam(value = "page",required = false)Integer page,@RequestParam(value = "pageSize") Integer pageSize){
-        return parkingLotService.findAllByPage(page,pageSize);
+    public List<ParkingLot> findParkingLot(@RequestParam(value = "page",required = false)Integer page){
+        return parkingLotService.findAllByPage(page);
     }
 
     @GetMapping("{name}")
