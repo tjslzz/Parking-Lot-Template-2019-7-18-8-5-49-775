@@ -30,6 +30,9 @@ public class ParkingOrderService implements ParkingOrderServiceImp {
                 parkingOrderRepository.save(parkingOrder);
                 return parkingOrder;
             }
+            else{
+                throw new Exception("The parking lot is full");
+            }
         }
         catch (Exception e){}
         return null;
