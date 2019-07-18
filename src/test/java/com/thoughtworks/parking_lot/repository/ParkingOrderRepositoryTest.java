@@ -31,7 +31,7 @@ public class ParkingOrderRepositoryTest {
     public void setUp(){
         parkingOrders = new ArrayList<>();
         parkingOrder = new ParkingOrder(null,"OOCL0209",String.valueOf(new Date().getTime()),String.valueOf(new Date().getTime()),0);
-        parkingLot = new ParkingLot("jerryLi",10,"CSUST",parkingOrders);
+        parkingLot = new ParkingLot("jerryLi",2,"CSUST",parkingOrders);
     }
 
     @Test
@@ -47,5 +47,21 @@ public class ParkingOrderRepositoryTest {
         }
 
         assertEquals(true,parkingOrderRepository.findAll().size()>0);
+    }
+
+
+    @Test
+    public void should_return_false_info_when_call_park_given_car(){
+        parkingOrder.setName(parkingLot.getName());
+        parkingOrders.add(parkingOrder);
+        parkingOrders.add(parkingOrder);
+        parkingLot.setParkingOrders(parkingOrders);
+        parkingLotRepository.save(parkingLot);
+        ParkingLot result = parkingLotRepository.findById("jerryLi").orElse(null);
+        String str = "";
+        if(result.getCapacity()-result.getParkingOrders().size() <= 0){
+            str = "The parking lot is full";
+        }
+        assertEquals("The parking lot is full",str);
     }
 }
