@@ -6,5 +6,4 @@ CREATE TABLE parking_order  (
   end_time varchar(255) NOT NULL,
   state int(1) UNSIGNED NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (`name`) REFERENCES `parking_lot` (`name`)
 )
