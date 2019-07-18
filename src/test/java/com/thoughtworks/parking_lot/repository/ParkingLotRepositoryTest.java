@@ -56,4 +56,14 @@ public class ParkingLotRepositoryTest {
         ParkingLot result = parkingLotRepository.findById("jerryLi").orElse(null);
         assertEquals(10,result.getCapacity());
     }
+
+
+    @Test
+    public void should_return_true_info_when_call_upd_lot_given_name_and_new_size(){
+        parkingLotRepository.save(parkingLot);
+        ParkingLot result = parkingLotRepository.findById("jerryLi").orElse(null);
+        result.setCapacity(result.getCapacity()+10);
+        parkingLotRepository.save(result);
+        assertEquals(20,parkingLotRepository.findById("jerryLi").orElse(null).getCapacity());
+    }
 }
