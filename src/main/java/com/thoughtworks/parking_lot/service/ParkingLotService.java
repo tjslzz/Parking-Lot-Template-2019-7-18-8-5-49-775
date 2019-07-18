@@ -21,4 +21,14 @@ public class ParkingLotService implements ParkingServiceImp {
         catch (Exception e){}
         return 0;
     }
+
+    @Override
+    public int delParkingLot(String name) {
+        try{
+            parkingLotRepository.deleteById(name);
+            return 1;
+        }
+        catch (Exception e){}
+        return 0;
+    }
 }
