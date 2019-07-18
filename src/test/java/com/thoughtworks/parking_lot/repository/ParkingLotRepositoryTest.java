@@ -49,4 +49,11 @@ public class ParkingLotRepositoryTest {
         parkingLots = parkingLots.stream().skip((page-1)*pageSize).limit(pageSize).collect(Collectors.toList());
         assertEquals(15,parkingLots.size());
     }
+
+    @Test
+    public void should_return_true_info_when_call_find_lot_given_name(){
+        parkingLotRepository.save(parkingLot);
+        ParkingLot result = parkingLotRepository.findById("jerryLi").orElse(null);
+        assertEquals(10,result.getCapacity());
+    }
 }
