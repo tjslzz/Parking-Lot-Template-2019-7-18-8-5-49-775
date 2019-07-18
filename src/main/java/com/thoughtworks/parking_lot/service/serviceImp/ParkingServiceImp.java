@@ -10,4 +10,5 @@ public interface ParkingServiceImp {
     int addParkingLot(ParkingLot parkingLot);
     int delParkingLot(String name);
     List<ParkingLot> findAllByPage(Integer page,Integer size);
+    ParkingLot findByName(String name);
 }

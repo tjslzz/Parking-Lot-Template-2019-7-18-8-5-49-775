@@ -28,4 +28,9 @@ public class ParkingLotController {
     public List<ParkingLot> findParkingLot(@RequestParam(value = "page",required = false)Integer page,@RequestParam(value = "pageSize") Integer pageSize){
         return parkingLotService.findAllByPage(page,pageSize);
     }
+
+    @GetMapping("{name}")
+    public ParkingLot findParkingLot(@PathVariable String name){
+        return parkingLotService.findByName(name);
+    }
 }

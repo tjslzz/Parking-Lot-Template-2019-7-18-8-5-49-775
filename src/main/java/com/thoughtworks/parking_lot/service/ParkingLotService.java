@@ -46,4 +46,13 @@ public class ParkingLotService implements ParkingServiceImp {
         catch (Exception e){}
         return parkingLots;
     }
+
+    @Override
+    public ParkingLot findByName(String name) {
+        try{
+            return parkingLotRepository.findById(name).orElse(null);
+        }
+        catch (Exception e){}
+        return null;
+    }
 }
