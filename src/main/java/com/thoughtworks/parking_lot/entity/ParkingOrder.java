@@ -19,6 +19,7 @@ public class ParkingOrder {
     @NotNull
     private String endTime;
     @NotNull
+    @Column(columnDefinition = "int default 1")
     private int state;
 
 
