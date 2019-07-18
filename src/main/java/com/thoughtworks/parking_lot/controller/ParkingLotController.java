@@ -5,6 +5,8 @@ import com.thoughtworks.parking_lot.service.ParkingLotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/parking")
 public class ParkingLotController {
@@ -22,5 +24,8 @@ public class ParkingLotController {
         return parkingLotService.delParkingLot(name);
     }
 
-    
+    @GetMapping()
+    public List<ParkingLot> findParkingLot(@RequestParam(value = "page",required = false)Integer page,@RequestParam(value = "pageSize") Integer pageSize){
+        return parkingLotService.findAllByPage(page,pageSize);
+    }
 }
