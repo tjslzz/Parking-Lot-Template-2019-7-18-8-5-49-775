@@ -7,7 +7,7 @@ logging:
       hibernate: ERROR
 spring:
   datasource:
-    url: jdbc:h2:file:./database
+    url: jdbc:h2:file:./database/parking
     driver-class-name: org.h2.Driver
     username: sa
     database-platform: org.hibernate.dialect.H2Dialect
