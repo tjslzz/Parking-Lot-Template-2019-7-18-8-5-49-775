@@ -11,4 +11,5 @@ public interface ParkingServiceImp {
     int delParkingLot(String name);
     List<ParkingLot> findAllByPage(Integer page,Integer size);
     ParkingLot findByName(String name);
+    int updByCapacity(String name,Integer number);
 }

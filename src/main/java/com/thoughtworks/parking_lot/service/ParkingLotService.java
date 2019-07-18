@@ -55,4 +55,16 @@ public class ParkingLotService implements ParkingServiceImp {
         catch (Exception e){}
         return null;
     }
+
+    @Override
+    public int updByCapacity(String name, Integer number) {
+        try{
+            ParkingLot parkingLot = parkingLotRepository.findById(name).orElse(null);
+            parkingLot.setCapacity(number);
+            parkingLotRepository.save(parkingLot);
+            return 1;
+        }
+        catch (Exception e){}
+        return 0;
+    }
 }
