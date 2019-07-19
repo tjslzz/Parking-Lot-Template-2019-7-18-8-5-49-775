@@ -1,5 +1,7 @@
 package com.thoughtworks.parking_lot.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -9,8 +11,10 @@ public class ParkingOrder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int id;
 
-    @NotNull
-    private String name;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "name")
+    @JsonIgnore
+    private ParkingLot parkingLot;
 
     @NotNull
     private String number;
@@ -23,8 +27,8 @@ public class ParkingOrder {
     private int state;
 
 
-    public ParkingOrder(@NotNull String name, @NotNull String number, @NotNull String createTime, @NotNull String endTime, @NotNull int state) {
-        this.name = name;
+    public ParkingOrder(@NotNull ParkingLot parkingLot, @NotNull String number, @NotNull String createTime, @NotNull String endTime, @NotNull int state) {
+        this.parkingLot = parkingLot;
         this.number = number;
         this.createTime = createTime;
         this.endTime = endTime;
@@ -75,11 +79,11 @@ public class ParkingOrder {
         this.state = state;
     }
 
-    public String getName() {
-        return name;
+    public ParkingLot getParkingLot() {
+        return parkingLot;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setParkingLot(ParkingLot parkingLot) {
+        this.parkingLot = parkingLot;
     }
 }
