@@ -39,7 +39,6 @@ public class ParkingOrderRepositoryTest {
         parkingLotRepository.save(parkingLot);
         ParkingLot result = parkingLotRepository.findById("jerryLi").orElse(null);
         if(result.getCapacity()-result.getParkingOrders().size() > 0){
-            parkingOrder.setName(result.getName());
             parkingOrders.add(parkingOrder);
             result.setParkingOrders(parkingOrders);
             parkingLotRepository.save(result);
@@ -52,7 +51,6 @@ public class ParkingOrderRepositoryTest {
 
     @Test
     public void should_return_false_info_when_call_park_given_car(){
-        parkingOrder.setName(parkingLot.getName());
         parkingOrders.add(parkingOrder);
         parkingOrders.add(parkingOrder);
         parkingLot.setParkingOrders(parkingOrders);

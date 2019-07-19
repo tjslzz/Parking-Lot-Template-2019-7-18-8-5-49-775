@@ -24,7 +24,7 @@ public class ParkingOrderService implements ParkingOrderServiceImp {
         try{
             ParkingLot parkingLot = parkingLotRepository.findById(name).orElse(null);
             if(parkingLot.getCapacity()-parkingLot.getParkingOrders().size() > 0){
-                ParkingOrder parkingOrder = new ParkingOrder(parkingLot.getName(),car,String.valueOf(new Date().getTime()),String.valueOf(new Date().getTime()),1);
+                ParkingOrder parkingOrder = new ParkingOrder(parkingLot,car,String.valueOf(new Date().getTime()),String.valueOf(new Date().getTime()),1);
                 parkingLot.getParkingOrders().add(parkingOrder);
                 parkingLotRepository.save(parkingLot);
                 parkingOrderRepository.save(parkingOrder);

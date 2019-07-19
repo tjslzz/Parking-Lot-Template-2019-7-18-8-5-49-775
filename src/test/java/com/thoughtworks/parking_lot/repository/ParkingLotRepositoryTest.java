@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
@@ -46,8 +47,7 @@ public class ParkingLotRepositoryTest {
             ParkingLot p = new ParkingLot("test"+i,10,"OOCL"+i,new ArrayList<>());
             parkingLotRepository.save(p);
         }
-        List<ParkingLot> parkingLots = parkingLotRepository.findAll();
-        parkingLots = parkingLots.stream().skip((page-1)*pageSize).limit(pageSize).collect(Collectors.toList());
+        List<ParkingLot> parkingLots = parkingLotRepository.findAll(PageRequest.of(page,15)).getContent();
         assertEquals(15,parkingLots.size());
     }
 

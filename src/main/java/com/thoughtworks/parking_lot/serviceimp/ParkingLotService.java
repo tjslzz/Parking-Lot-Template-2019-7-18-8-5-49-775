@@ -4,8 +4,10 @@ import com.thoughtworks.parking_lot.entity.ParkingLot;
 import com.thoughtworks.parking_lot.repository.ParkingLotRepository;
 import com.thoughtworks.parking_lot.service.ParkingLotServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -41,13 +43,11 @@ public class ParkingLotService implements ParkingLotServiceImp {
 
     @Override
     public List<ParkingLot> findAllByPage(Integer page) {
-        List<ParkingLot> parkingLots = new ArrayList<>();
         try{
-            parkingLots = parkingLotRepository.findAll();
-            return parkingLots.stream().skip((page-1)*PAGE_SIZE).limit(PAGE_SIZE).collect(Collectors.toList());
+            return parkingLotRepository.findAll(PageRequest.of(page,PAGE_SIZE)).getContent();
         }
         catch (Exception e){}
-        return parkingLots;
+        return null;
     }
 
     @Override
