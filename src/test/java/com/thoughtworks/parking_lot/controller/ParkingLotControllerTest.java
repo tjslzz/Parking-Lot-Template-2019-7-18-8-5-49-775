@@ -23,6 +23,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -63,5 +64,16 @@ public class ParkingLotControllerTest {
         mockMvc.perform(get("/parking-lots",1))
                 .andDo(print())
                 .andExpect(status().isOk());
+    }
+
+
+    @Test
+    public void should_return_jerry_li_wehn_find_lot_by_name() throws Exception {
+        Optional<ParkingLot> optionalParkingLot = Optional.of(parkingLot);
+        when(parkingLotRepository.findById("jerryLi")).thenReturn(optionalParkingLot);
+        mockMvc.perform(get("/parking-lots/jerryLi"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name").value("jerryLi"));
     }
 }
