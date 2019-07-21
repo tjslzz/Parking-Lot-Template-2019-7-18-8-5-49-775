@@ -60,4 +60,19 @@ public class ParkingLot {
     public void setParkingOrders(List<ParkingOrder> parkingOrders) {
         this.parkingOrders = parkingOrders;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("{");
+        sb.append("\"name\":\"")
+                .append(name).append('\"');
+        sb.append(",\"capacity\":")
+                .append(capacity);
+        sb.append(",\"position\":\"")
+                .append(position).append('\"');
+        sb.append(",\"parkingOrders\":")
+                .append(parkingOrders);
+        sb.append('}');
+        return sb.toString();
+    }
 }

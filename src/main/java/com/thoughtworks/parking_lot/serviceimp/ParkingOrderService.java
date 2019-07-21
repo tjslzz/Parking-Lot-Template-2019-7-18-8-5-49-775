@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ParkingOrderService implements ParkingOrderServiceImp {
@@ -23,7 +24,8 @@ public class ParkingOrderService implements ParkingOrderServiceImp {
     public ParkingOrder addParkingOrder(String name,String car) {
         try{
             ParkingLot parkingLot = parkingLotRepository.findById(name).orElse(null);
-            if(parkingLot.getCapacity()-parkingLot.getParkingOrders().size() > 0){
+            List<ParkingOrder> parkingOrders = parkingLot.getParkingOrders();
+            if(parkingLot.getCapacity() > parkingOrders.stream().filter(p->p.getState()==0).collect(Collectors.toList()).size()){
                 ParkingOrder parkingOrder = new ParkingOrder(parkingLot,car,String.valueOf(new Date().getTime()),String.valueOf(new Date().getTime()),1);
                 parkingLot.getParkingOrders().add(parkingOrder);
                 parkingLotRepository.save(parkingLot);
