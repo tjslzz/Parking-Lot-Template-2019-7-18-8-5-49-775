@@ -1,8 +1,8 @@
 package com.thoughtworks.parking_lot.controller;
 
-import static org.hamcrest.Matchers.containsString;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -56,5 +56,12 @@ public class ParkingLotControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(jsonPath("$").value(1));
+    }
+
+    @Test
+    public void should_return_jerry_li_wehn_get_all_lots() throws Exception {
+        mockMvc.perform(get("/parking-lots",1))
+                .andDo(print())
+                .andExpect(status().isOk());
     }
 }
