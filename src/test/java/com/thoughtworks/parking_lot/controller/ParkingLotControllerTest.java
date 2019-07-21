@@ -1,9 +1,7 @@
 package com.thoughtworks.parking_lot.controller;
 
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -66,7 +64,6 @@ public class ParkingLotControllerTest {
                 .andExpect(status().isOk());
     }
 
-
     @Test
     public void should_return_jerry_li_wehn_find_lot_by_name() throws Exception {
         Optional<ParkingLot> optionalParkingLot = Optional.of(parkingLot);
@@ -75,5 +72,18 @@ public class ParkingLotControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("jerryLi"));
+    }
+
+
+    @Test
+    public void should_return_1_wehn_update_a_lot() throws Exception {
+        Optional<ParkingLot> optionalParkingLot = Optional.of(parkingLot);
+        when(parkingLotRepository.findById("jerryLi")).thenReturn(optionalParkingLot);
+        when(parkingLotRepository.save(parkingLot)).thenReturn(parkingLot);
+        mockMvc.perform(put("/parking-lots/jerryLi/capacity/10"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(jsonPath("$").value(1));
     }
 }

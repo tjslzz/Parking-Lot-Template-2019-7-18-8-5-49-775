@@ -1202,3 +1202,71 @@ insert into parking_order (id, create_time, end_time, number, name, state) value
 2019-07-21 17:58:35.525  INFO 19372 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2019-07-21 17:58:35.529  INFO 19372 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2019-07-21 17:58:35.532  INFO 19372 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-07-21 18:00:52.496  INFO 10192 --- [main] c.t.p.c.ParkingLotControllerTest         : Starting ParkingLotControllerTest on MACHENI-3N42RHO with PID 10192 (started by 李照照 in G:\Test\new_data\Parking-Lot-Template-2019-7-18-8-5-49-775)
+2019-07-21 18:00:52.498  INFO 10192 --- [main] c.t.p.c.ParkingLotControllerTest         : No active profile set, falling back to default profiles: default
+2019-07-21 18:00:52.526 DEBUG 10192 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@3576ddc2
+2019-07-21 18:00:53.555  INFO 10192 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-07-21 18:00:53.638  INFO 10192 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73ms. Found 2 repository interfaces.
+2019-07-21 18:00:54.532  INFO 10192 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3221308] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-07-21 18:00:54.732  INFO 10192 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 5.2.4 by Boxfuse
+2019-07-21 18:00:54.741  INFO 10192 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-07-21 18:00:54.931  INFO 10192 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-07-21 18:00:54.935  INFO 10192 --- [main] o.f.c.internal.database.DatabaseFactory  : Database: jdbc:h2:file:./database/parking (H2 1.4)
+2019-07-21 18:00:54.965  WARN 10192 --- [main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: H2 1.4.199 is newer than this version of Flyway and support has not been tested.
+2019-07-21 18:00:55.015  INFO 10192 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.020s)
+2019-07-21 18:00:55.030  INFO 10192 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": 2
+2019-07-21 18:00:55.031  INFO 10192 --- [main] o.f.core.internal.command.DbMigrate      : Schema "PUBLIC" is up to date. No migration necessary.
+2019-07-21 18:00:56.234  INFO 10192 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-07-21 18:00:56.975 DEBUG 10192 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-07-21 18:00:57.465  INFO 10192 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-21 18:00:57.485 DEBUG 10192 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-07-21 18:00:57.539  WARN 10192 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-07-21 18:00:57.596 DEBUG 10192 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 9 mappings in 'requestMappingHandlerMapping'
+2019-07-21 18:00:57.630 DEBUG 10192 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-07-21 18:00:57.650 DEBUG 10192 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-07-21 18:00:58.008  INFO 10192 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2019-07-21 18:00:58.008  INFO 10192 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2019-07-21 18:00:58.024  INFO 10192 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 16 ms
+2019-07-21 18:00:58.053  INFO 10192 --- [main] c.t.p.c.ParkingLotControllerTest         : Started ParkingLotControllerTest in 6.133 seconds (JVM running for 7.267)
+2019-07-21 18:00:58.127 DEBUG 10192 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public int com.thoughtworks.parking_lot.controller.ParkingLotController.putParkingLot(java.lang.String,java.lang.Integer)
+2019-07-21 18:00:58.181 DEBUG 10192 --- [main] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-07-21 18:00:58.181 DEBUG 10192 --- [main] m.m.a.RequestResponseBodyMethodProcessor : Writing [0]
+2019-07-21 18:00:58.248 DEBUG 10192 --- [Thread-4] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@3576ddc2, started on Sun Jul 21 18:00:52 CST 2019
+2019-07-21 18:00:58.252  INFO 10192 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-07-21 18:00:58.254  INFO 10192 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-07-21 18:00:58.260  INFO 10192 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-07-21 18:00:58.263  INFO 10192 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2019-07-21 18:01:26.642  INFO 7448 --- [main] c.t.p.c.ParkingLotControllerTest         : Starting ParkingLotControllerTest on MACHENI-3N42RHO with PID 7448 (started by 李照照 in G:\Test\new_data\Parking-Lot-Template-2019-7-18-8-5-49-775)
+2019-07-21 18:01:26.645  INFO 7448 --- [main] c.t.p.c.ParkingLotControllerTest         : No active profile set, falling back to default profiles: default
+2019-07-21 18:01:26.675 DEBUG 7448 --- [main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@3576ddc2
+2019-07-21 18:01:27.786  INFO 7448 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-07-21 18:01:27.873  INFO 7448 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76ms. Found 2 repository interfaces.
+2019-07-21 18:01:28.840  INFO 7448 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$19776d64] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-07-21 18:01:29.050  INFO 7448 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 5.2.4 by Boxfuse
+2019-07-21 18:01:29.058  INFO 7448 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-07-21 18:01:29.281  INFO 7448 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-07-21 18:01:29.288  INFO 7448 --- [main] o.f.c.internal.database.DatabaseFactory  : Database: jdbc:h2:file:./database/parking (H2 1.4)
+2019-07-21 18:01:29.318  WARN 7448 --- [main] o.f.c.internal.database.base.Database    : Flyway upgrade recommended: H2 1.4.199 is newer than this version of Flyway and support has not been tested.
+2019-07-21 18:01:29.373  INFO 7448 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 2 migrations (execution time 00:00.019s)
+2019-07-21 18:01:29.389  INFO 7448 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema "PUBLIC": 2
+2019-07-21 18:01:29.390  INFO 7448 --- [main] o.f.core.internal.command.DbMigrate      : Schema "PUBLIC" is up to date. No migration necessary.
+2019-07-21 18:01:30.644  INFO 7448 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-07-21 18:01:31.347 DEBUG 7448 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/**/favicon.ico] in 'faviconHandlerMapping'
+2019-07-21 18:01:31.877  INFO 7448 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-07-21 18:01:31.901 DEBUG 7448 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2019-07-21 18:01:31.961  WARN 7448 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-07-21 18:01:32.026 DEBUG 7448 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 9 mappings in 'requestMappingHandlerMapping'
+2019-07-21 18:01:32.060 DEBUG 7448 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2019-07-21 18:01:32.076 DEBUG 7448 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2019-07-21 18:01:32.426  INFO 7448 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2019-07-21 18:01:32.426  INFO 7448 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2019-07-21 18:01:32.442  INFO 7448 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 16 ms
+2019-07-21 18:01:32.477  INFO 7448 --- [main] c.t.p.c.ParkingLotControllerTest         : Started ParkingLotControllerTest in 6.438 seconds (JVM running for 7.588)
+2019-07-21 18:01:32.567 DEBUG 7448 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to public int com.thoughtworks.parking_lot.controller.ParkingLotController.putParkingLot(java.lang.String,java.lang.Integer)
+2019-07-21 18:01:32.634 DEBUG 7448 --- [main] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2019-07-21 18:01:32.635 DEBUG 7448 --- [main] m.m.a.RequestResponseBodyMethodProcessor : Writing [1]
+2019-07-21 18:01:32.689 DEBUG 7448 --- [Thread-4] o.s.w.c.s.GenericWebApplicationContext   : Closing org.springframework.web.context.support.GenericWebApplicationContext@3576ddc2, started on Sun Jul 21 18:01:26 CST 2019
+2019-07-21 18:01:32.693  INFO 7448 --- [Thread-4] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-07-21 18:01:32.695  INFO 7448 --- [Thread-4] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-07-21 18:01:32.699  INFO 7448 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2019-07-21 18:01:32.704  INFO 7448 --- [Thread-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
