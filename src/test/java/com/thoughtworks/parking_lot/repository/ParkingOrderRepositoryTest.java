@@ -45,7 +45,7 @@ public class ParkingOrderRepositoryTest {
             parkingOrderRepository.save(parkingOrder);
         }
 
-        assertEquals(true,parkingOrderRepository.findAll().size()>0);
+        assertEquals(2,parkingOrderRepository.findAll().size());
     }
 
 
