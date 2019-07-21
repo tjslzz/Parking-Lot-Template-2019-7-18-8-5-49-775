@@ -1,8 +1,8 @@
 package com.thoughtworks.parking_lot.controller;
 
-
+import static org.hamcrest.Matchers.containsString;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -19,7 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -59,5 +58,17 @@ public class ParkingOrderControllerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.number").value("OOCL0209"));
+    }
+
+    @Test
+    public void should_return_car_when_fetch_a_car() throws Exception {
+        Optional<ParkingLot> optionalParkingLot = Optional.of(parkingLot);
+        when(parkingLotRepository.findById("jerryLi")).thenReturn(optionalParkingLot);
+        when(parkingOrderRepository.save(parkingOrder)).thenReturn(parkingOrder);
+        when(parkingLotRepository.save(parkingLot)).thenReturn(parkingLot);
+        mockMvc.perform(delete("/parking-orders/parking-lots/jerryLi/park-car/OOCL0209"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("car")));
     }
 }

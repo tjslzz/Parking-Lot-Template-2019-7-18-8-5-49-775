@@ -49,6 +49,8 @@ public class ParkingOrderService implements ParkingOrderServiceImp {
             parkingOrder.setState(0);
             parkingOrder.setEndTime(String.valueOf(new Date().getTime()));
             parkingOrders.stream().map(p -> p.getNumber().equalsIgnoreCase(car)?parkingOrder:p);
+            parkingLotRepository.save(parkingLot);
+            parkingOrderRepository.save(parkingOrder);
             return "car";
         }
         catch (Exception e){}
