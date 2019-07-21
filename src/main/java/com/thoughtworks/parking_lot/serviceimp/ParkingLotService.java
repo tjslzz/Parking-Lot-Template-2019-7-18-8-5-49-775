@@ -44,7 +44,7 @@ public class ParkingLotService implements ParkingLotServiceImp {
     @Override
     public List<ParkingLot> findAllByPage(Integer page) {
         try{
-            return parkingLotRepository.findAll(PageRequest.of(page,PAGE_SIZE)).getContent();
+            return parkingLotRepository.findAll(PageRequest.of(page-1,PAGE_SIZE)).getContent();
         }
         catch (Exception e){}
         return null;

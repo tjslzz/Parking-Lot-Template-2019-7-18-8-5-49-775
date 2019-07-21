@@ -25,7 +25,7 @@ public class ParkingLotController {
     }
 
     @GetMapping()
-    public List<ParkingLot> findParkingLot(@RequestParam(value = "page",required = false)Integer page){
+    public List<ParkingLot> findParkingLot(@RequestParam(value = "page",required = false,defaultValue = "1")Integer page){
         return parkingLotService.findAllByPage(page);
     }
 

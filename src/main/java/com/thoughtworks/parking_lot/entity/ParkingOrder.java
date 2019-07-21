@@ -86,4 +86,23 @@ public class ParkingOrder {
     public void setParkingLot(ParkingLot parkingLot) {
         this.parkingLot = parkingLot;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("{");
+        sb.append("\"id\":")
+                .append(id);
+        sb.append(",\"parkingLot\":")
+                .append(parkingLot);
+        sb.append(",\"number\":\"")
+                .append(number).append('\"');
+        sb.append(",\"createTime\":\"")
+                .append(createTime).append('\"');
+        sb.append(",\"endTime\":\"")
+                .append(endTime).append('\"');
+        sb.append(",\"state\":")
+                .append(state);
+        sb.append('}');
+        return sb.toString();
+    }
 }
