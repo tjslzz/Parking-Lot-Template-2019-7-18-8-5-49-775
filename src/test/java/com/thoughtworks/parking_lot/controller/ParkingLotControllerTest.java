@@ -2,6 +2,7 @@ package com.thoughtworks.parking_lot.controller;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -42,6 +43,15 @@ public class ParkingLotControllerTest {
     public void should_return_1_wehn_given_a_lot_to_add() throws Exception {
         when(parkingLotRepository.save(parkingLot)).thenReturn(parkingLot);
         mockMvc.perform(post("/parking-lots").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE).content(parkingLot.toString()))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(jsonPath("$").value(1));
+    }
+
+    @Test
+    public void should_return_1_wehn_given_a_lot_name_to_del() throws Exception {
+        mockMvc.perform(delete("/parking-lots/jerryLi"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
